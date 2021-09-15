@@ -10,11 +10,11 @@ class Model_Photo extends Model
         'Жирафа','Доцик','Жопа'
     );
     public $images_array = array(
-        'img/1.jpg','img/2.jpg','img/3.jpg',
-        'img/4.jpg','img/5.jpg','img/6.jpg',
-        'img/7.jpg','img/8.jpg','img/9.jpg',
-        'img/10.jpg','img/11.jpg','img/12.jpg',
-        'img/13.jpg','img/14.jpg','img/15.jpg'
+        'images/1.jpg','images/2.jpg','images/3.jpg',
+        'images/4.jpg','images/5.jpg','images/6.jpg',
+        'images/7.jpg','images/8.jpg','images/9.jpg',
+        'images/10.jpg','images/11.jpg','images/12.jpg',
+        'images/13.jpg','images/14.jpg','images/15.jpg'
     );
 	public function get_data()
 	{	

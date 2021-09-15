@@ -1,33 +1,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <h1>Портфолио</h1>
 <p>
-<table>
-    Все проекты в следующей таблице являются вымышленными, поэтому даже не пытайтесь перейти по приведенным ссылкам.
-    <tr>
-        <td>Год</td>
-        <td>Проект</td>
-        <td>Описание</td>
-    </tr>
-    <?php
-        $table_begin = <<<EOT
-            document.write('<table style="border: solid;">');
-            document.write('<thead><tr><td colspan = "3" style="text-align: center;">Фоточки</td></tr></thead><tbody>');
-        EOT;
-        echo $table_begin;
-        for($i = 0; $i<5;$i++){
-        //for ($i = 0; $i < count($data[0]); $i++) {
+<table style="border: solid;">
+    <thead>
+        <tr>
+            <td colspan="3" style="text-align: center;">Фоточки</td>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $iii = 0;
+        for ($i = 0; $i < 5; $i++) {
+            echo '<tr>';
+            //for ($i = 0; $i < count($data[0]); $i++) {
             //echo '<tr><td>' . $data[0][$i] . '</td><td>' . $data[1][$i] . '</td><td>чото</td></tr>';
-            for($ii = 0;$ii<3;$ii++){
-            echo '<td><figure><img src="'.$data[0][$i].'" alt="Динозаврик" title="'.$data[0][$i].
-            '" width=200 onclick="modal_shit(this)"><figcaption>'.$data[0][$i].'</figcaption></figure></td>';
+            for ($ii = 0; $ii < 3; $ii++, $iii++) {
+                echo '<td><figure><img src="' . $data[0][$iii] . '" alt="Динозаврик" title="' . $data[1][$iii] .
+                    '" width=200 onclick="modal_shit(this)"><figcaption>' . $data[1][$iii] . '</figcaption></figure></td>';
+                echo "\n";
             };
-            echo 'document.write("</tr>");';
+            echo '</tr>';
         };
-        echo "document.write('</tbody></table>');";
-
-
-
-    ?>
+        ?>
+    </tbody>
 </table>
 </p>
 <?php
@@ -35,11 +30,11 @@
 $text = <<<EOT
         <script>
             var images = [
-                'img/1.jpg','img/2.jpg','img/3.jpg',
-                'img/4.jpg','img/5.jpg','img/6.jpg',
-                'img/7.jpg','img/8.jpg','img/9.jpg',
-                'img/10.jpg','img/11.jpg','img/12.jpg',
-                'img/13.jpg','img/14.jpg','img/15.jpg'
+                'images/1.jpg','images/2.jpg','images/3.jpg',
+                'images/4.jpg','images/5.jpg','images/6.jpg',
+                'images/7.jpg','images/8.jpg','images/9.jpg',
+                'images/10.jpg','images/11.jpg','images/12.jpg',
+                'images/13.jpg','images/14.jpg','images/15.jpg'
             ];
             var titles = [
             'Дельфин','Пастор','Переплата',
@@ -133,9 +128,15 @@ $text = <<<EOT
                 alert(123);
             });
         </script>
-Hello
-Bitch
 EOT;
 
 echo $text;
 ?>
+<div id="myModal" class="modal">
+    <span class="close" onclick="close_span()">&times;</span>
+    <span class="right_arrow">&#8594;</span>
+    <span class="left_arrow">&#8592;</span>
+    <span class="number"></span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
