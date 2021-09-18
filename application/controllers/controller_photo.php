@@ -1,7 +1,6 @@
 <?php
 class Controller_photo extends Controller
 {
-
 	function __construct()
 	{
 		$this->model = new Model_Photo();
