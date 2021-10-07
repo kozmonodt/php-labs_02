@@ -1,7 +1,6 @@
 <div id="content">
     <script type="text/javascript" src="/js/print_list.js"></script>
-    <p id="laba">Мои интересы</p>
-    
+    <p id="laba">Мои интересы</p>   
         <?php
             //Print anchor list
             echo "<UL>";

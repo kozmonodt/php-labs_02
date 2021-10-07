@@ -24,6 +24,7 @@ class Model_Interests extends Model{
         Nesciunt sequi necessitatibus illum! Ad provident, repellat, ut soluta facere quod labore veniam nam molestiae 
         doloremque accusantium. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ad commodi, illo 
         voluptatem eveniet qui, ipsum animi a dolores autem earum molestias aspernatur nobis omnis reprehenderit tempora officiis quia! Obcaecati?",
+
         "Кушать" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, architecto nisi, quasi recusandae quo 
         doloremque assumenda, pariatur esse repellat magni quam. Suscipit, molestiae necessitatibus. Nostrum aut at totam minima 
         necessitatibus? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum dolorem doloremque enim dolor nesciunt 
@@ -37,6 +38,7 @@ class Model_Interests extends Model{
         tenetur. Nesciunt sequi necessitatibus illum! Ad provident, repellat, ut soluta facere quod labore veniam nam molestiae 
         doloremque accusantium. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ad commodi, illo voluptatem eveniet 
         qui, ipsum animi a dolores autem earum molestias aspernatur nobis omnis reprehenderit tempora officiis quia! Obcaecati?",
+        
         "Спать" => "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis voluptatem aut beatae nulla inventore 
         necessitatibus, suscipit recusandae aspernatur laborum? Non nisi sit rem vel velit fuga, distinctio reprehenderit 
         pariatur voluptate. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, atque! Doloribus amet minima, ex sapiente 
