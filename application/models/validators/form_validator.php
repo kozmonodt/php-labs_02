@@ -100,12 +100,21 @@ class Form_Validator {
     }
     
     public function isFIO($data_to_check){
-        if(preg_match("/^[a-zA-Z]{4,}(?: [a-zA-Z]+){2,}$/", $data_to_check)){
+        if(preg_match("/^[a-zA-Z]{4,}(?: [a-zA-Z]+){2,}$/" , $data_to_check)){
             return true;
         } else {
             array_push($this->Errors,"There is a non-FIO data in FIO field!");
             return false;
             //echo '<h4 class="error">Name is not valid! It must not contain numbers   or special characters </h4>.</a>';
+        }
+    }
+
+    public function isTelNumber($data_to_check){
+        if(preg_match("/^\+7+[0-9]{10}$/",  $data_to_check)){
+            return true;
+        } else {
+            array_push($this->Errors, "There is non-Telephone data in TEL field!");
+            return false;
         }
     }
 }
