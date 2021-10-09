@@ -94,6 +94,8 @@ class Form_Validator {
     }
 
     public function showErrors(){
-        
+        foreach($this->Errors as $error){
+            echo $error;
+        }
     }
 }
