@@ -16,14 +16,14 @@
         </div>
         <br>
         
-        Напишите свою почту <input type="text" id="email">
+        Напишите свою почту <input type="text" id="email" name = 'email'>
         <br>
         <label id="">Напишите свой телефон <span id="error_tel" class="noErrorHappen">*</span></label>
         <input type="text" id="telefon" onblur="check_tel()" name = 'telefon'>
         <br>
         <p>
             Сколько Вам лет
-            <select id="select">
+            <select id="select" name = 'age'>
                 <optgroup label="Адекваты">
                     <option value="c1">20-30</option>
                 </optgroup>
@@ -65,7 +65,7 @@
 
     <?php echo $_SERVER['REQUEST_URI']; ?>
     <?php echo  $_POST["fio"]; ?>
-        <?php 
+    <?php 
         echo '<pre>';
         var_dump($data);
         echo '</pre>';

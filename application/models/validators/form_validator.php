@@ -94,9 +94,11 @@ class Form_Validator {
     }
 
     public function showErrors(){
-        foreach($this->Errors as $error){
-            echo $error;
-        }
+        if(isset($this->Errors) && count($this->Errors) != 0){ 
+            foreach($this->Errors as $error){
+                echo $error;
+            } 
+        } 
     }
     
     public function isFIO($data_to_check){
@@ -115,6 +117,17 @@ class Form_Validator {
         } else {
             array_push($this->Errors, "There is non-Telephone data in TEL field!");
             return false;
+        }
+    }
+
+    public function isSet($data_to_check, $field_to_check){
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST[$field_to_check])){
+                return true;
+            } else {
+                array_push($this->Errors, "There is an unset $field_to_check field in form");
+                return false;
+            }
         }
     }
 }
