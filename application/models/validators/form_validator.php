@@ -1,6 +1,11 @@
 <?php
 class Form_Validator {
-    public $Rules = [];
+    public $Rules = array(
+        'fio' => array(
+            'isNotEmpty',
+            ''
+        )
+    );
     public $Errors = [];
 
     public function isNotEmpty($data){
@@ -9,8 +14,7 @@ class Form_Validator {
             return true;
         } else 
         {
-            global $Errors;
-            array_push($Errors,"There is an empty data");
+            array_push($this->Errors,"There is an empty data");
             echo 'noo!';
             return false;
         }
@@ -66,22 +70,30 @@ class Form_Validator {
     }
 
     public function validate($post_array){
+        $form_fields_names = array('fio','telefon');
         echo 'validatio!!';
         echo '<pre>';
         var_dump($post_array);
         echo '</pre>';
-
-        echo $post_array['fio'];
-        if(array_key_exists('fio', $this->Rules)){
-            echo "exists\r\n";
-            $callback = $this->Rules['fio'];
-            $param = $post_array['fio'];
-            echo $callback.' '.$param;
-            $this->$callback($param);
+        foreach($form_fields_names as $form_field) {
+            if(array_key_exists($form_field, $post_array)){
+                if(array_key_exists($form_field, $this->Rules)){
+                    echo "exists in check list" . PHP_EOL;
+                    //$callback = $this->Rules['fio'];
+                    $field_data = $post_array[$form_field];
+                    foreach($this->Rules[$form_field] as $callback){
+                        echo $callback.' '.$field_data;
+                        $this->$callback($field_data);
+                    }  
+                }
+            } else {
+                array_push($this->Errors,"There is no such a field in the form");
+                echo 'no_field_error';
+            }
         }
     }
 
     public function showErrors(){
-
+        
     }
 }
