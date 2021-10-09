@@ -24,7 +24,7 @@ class Form_Validator {
         if(is_int($data)){
             return true;
         } else {
-            array_push($Errors,"There is a non integer data here!");
+            array_push($this->Errors,"There is a non integer data here!");
             return false;
         }
     }
@@ -37,7 +37,7 @@ class Form_Validator {
                 return false;
             }
         } else {
-            array_push($Errors,"There is a non integer data here!");
+            array_push($this->Errors,"There is a non integer data here!");
             return false;
         }
     }
@@ -50,7 +50,7 @@ class Form_Validator {
                 return false;
             }
         } else {
-            array_push($Errors,"There is a non integer data here!");
+            array_push($this->Errors,"There is a non integer data here!");
             return false;
         }
     }
@@ -59,7 +59,7 @@ class Form_Validator {
         if(filter_var($data, FILTER_VALIDATE_EMAIL)){
             return true;
         } else {
-            array_push($Errors,"There is a non email field here!");
+            array_push($this->Errors,"There is a non email field here!");
             return false;
         }
     }
@@ -96,6 +96,16 @@ class Form_Validator {
     public function showErrors(){
         foreach($this->Errors as $error){
             echo $error;
+        }
+    }
+    
+    public function isFIO($data_to_check){
+        if(preg_match("/^[a-zA-Z]{4,}(?: [a-zA-Z]+){2,}$/", $data_to_check)){
+            return true;
+        } else {
+            array_push($this->Errors,"There is a non-FIO data in FIO field!");
+            return false;
+            //echo '<h4 class="error">Name is not valid! It must not contain numbers   or special characters </h4>.</a>';
         }
     }
 }
