@@ -1,5 +1,8 @@
 <?php
 	require 'application/models/validators/form_validator.php';
+	require 'application/models/validators/custom_form_validation.php';
+	require 'application/models/validators/results_verification.php';
+	
 	class Model
 	{
 		public $validator;//валидатор

@@ -1,14 +1,14 @@
 <?php
-class Controller_Contact extends Controller{
+class Controller_Test extends Controller{
     function __construct()
     {
-        $this->model = new Model_Contact;
+        $this->model = new Model_Test;
         $this->view = new View;
     }
     function action_index()
     {
         $data = $this->model->get_data();
-        $this->view->generate('contacts_view.php', 'template_view.php', $data);
+        $this->view->generate('test_view.php', 'template_view.php', $data);
     }
     function action_validate(){
         echo 'Validation is in progress' . '<br>';

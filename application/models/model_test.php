@@ -1,7 +1,7 @@
 <?php
 
 
-class Model_Contact extends Model{
+class Model_Test extends Model{
 
     function __construct()
     {

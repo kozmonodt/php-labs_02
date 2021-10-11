@@ -1,21 +1,21 @@
 <?php
 class Form_Validator {
+    public static $Current_field;
     public $Rules = array(
-        'fio' => array(
-            'isNotEmpty',
-            ''
-        )
+        'fio' => array('isNotEmpty','isFIO'),
+        'email' => array('isNotEmpty', 'isEmail'),
+        'telefon' => array('isNotEmpty', 'isTelNumber'),
+        
     );
     public $Errors = [];
 
     public function isNotEmpty($data){
         if(!empty($data)){
-            echo 'yass!';
             return true;
         } else 
         {
-            array_push($this->Errors,"There is an empty data");
-            echo 'noo!';
+            //echo $this->Current_fie
+            array_push($this->Errors,"There is an empty data in " . Form_Validator::$Current_field);
             return false;
         }
     }
@@ -57,6 +57,7 @@ class Form_Validator {
 
     public function isEmail($data){
         if(filter_var($data, FILTER_VALIDATE_EMAIL)){
+            echo 'Is email' . '<br>';
             return true;
         } else {
             array_push($this->Errors,"There is a non email field here!");
@@ -70,19 +71,27 @@ class Form_Validator {
     }
 
     public function validate($post_array){
-        $form_fields_names = array('fio','telefon');
+        $form_fields_names = array('fio', 'email', 'telefon');
         echo 'validatio!!';
         echo '<pre>';
         var_dump($post_array);
         echo '</pre>';
         foreach($form_fields_names as $form_field) {
+            Form_Validator::$Current_field = $form_field;
             if(array_key_exists($form_field, $post_array)){
                 if(array_key_exists($form_field, $this->Rules)){
                     echo "exists in check list" . PHP_EOL;
                     //$callback = $this->Rules['fio'];
                     $field_data = $post_array[$form_field];
+                    echo '<pre>';
+                    var_dump($this->Rules);
+                    var_dump($this->Rules[$form_field]);
+                    var_dump($field_data);
+                    echo '</pre>';
+                    
+                    //echo $this->Rules[$form_field];
                     foreach($this->Rules[$form_field] as $callback){
-                        echo $callback.' '.$field_data;
+                        //echo $callback.' '.$field_data;
                         $this->$callback($field_data);
                     }  
                 }
@@ -96,13 +105,16 @@ class Form_Validator {
     public function showErrors(){
         if(isset($this->Errors) && count($this->Errors) != 0){ 
             foreach($this->Errors as $error){
-                echo $error;
+                echo $error . '<br>';
             } 
-        } 
+        } else {
+            echo "All is fine" . "<br>";
+        }
     }
     
     public function isFIO($data_to_check){
-        if(preg_match("/^[a-zA-Z]{4,}(?: [a-zA-Z]+){2,}$/" , $data_to_check)){
+        if(preg_match("/^[a-zA-Z]+(?: [a-zA-Z]+){2,}$/" , $data_to_check)){
+            echo "It's a FIO" . "<br>";
             return true;
         } else {
             array_push($this->Errors,"There is a non-FIO data in FIO field!");
@@ -113,6 +125,7 @@ class Form_Validator {
 
     public function isTelNumber($data_to_check){
         if(preg_match("/^\+7+[0-9]{10}$/",  $data_to_check)){
+            echo "It's a TEL" . "<br>";
             return true;
         } else {
             array_push($this->Errors, "There is non-Telephone data in TEL field!");
