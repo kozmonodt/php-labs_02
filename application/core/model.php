@@ -5,7 +5,7 @@
 	
 	class Model
 	{
-		public $validator;//валидатор
+		//public $validator;//валидатор
 		/*
 			Модель обычно включает методы выборки данных, это могут быть:
 				> методы нативных библиотек pgsql или mysql;
@@ -17,7 +17,7 @@
 
 		function __construct()
 		{
-			$this->validator = new Form_Validator();
+			//$this->validator = new Form_Validator();
 		}
 
 		// метод выборки данных

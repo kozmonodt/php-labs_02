@@ -5,16 +5,18 @@ class Form_Validator {
         'fio' => array('isNotEmpty','isFIO'),
         'email' => array('isNotEmpty', 'isEmail'),
         'telefon' => array('isNotEmpty', 'isTelNumber'),
-        
     );
-    public $Errors = [];
+    public $form_fields_names;
+    public $Errors = array();
+    function __construct($form_field_names){
+        $this->form_fields_names = $form_field_names;
+    }
 
     public function isNotEmpty($data){
         if(!empty($data)){
             return true;
         } else 
         {
-            //echo $this->Current_fie
             array_push($this->Errors,"There is an empty data in " . Form_Validator::$Current_field);
             return false;
         }
@@ -67,16 +69,16 @@ class Form_Validator {
 
     public function setRule($field_name, $validator_name){	
         //array_push($this->Rules, $field_name, $validator_name);
-        $this->Rules[$field_name] = $validator_name;
+        //$this->Rules[$field_name] = $validator_name;
+        array_push($this->Rules[$field_name] , $validator_name);
     }
 
     public function validate($post_array){
-        $form_fields_names = array('fio', 'email', 'telefon');
         echo 'validatio!!';
         echo '<pre>';
         var_dump($post_array);
         echo '</pre>';
-        foreach($form_fields_names as $form_field) {
+        foreach($this->form_fields_names as $form_field) {
             Form_Validator::$Current_field = $form_field;
             if(array_key_exists($form_field, $post_array)){
                 if(array_key_exists($form_field, $this->Rules)){
