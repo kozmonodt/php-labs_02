@@ -1,11 +1,7 @@
 <?php
 class Form_Validator {
     public static $Current_field;
-    public $Rules = array(
-        'fio' => array('isNotEmpty','isFIO'),
-        'email' => array('isNotEmpty', 'isEmail'),
-        'telefon' => array('isNotEmpty', 'isTelNumber'),
-    );
+    public $Rules = array();
     public $form_fields_names;
     public $Errors = array();
     function __construct($form_field_names){
@@ -69,8 +65,8 @@ class Form_Validator {
 
     public function setRule($field_name, $validator_name){	
         //array_push($this->Rules, $field_name, $validator_name);
-        //$this->Rules[$field_name] = $validator_name;
-        array_push($this->Rules[$field_name] , $validator_name);
+        $this->Rules[$field_name][] = $validator_name;
+        //array_push($this->Rules[$field_name] , $validator_name);
     }
 
     public function validate($post_array){
