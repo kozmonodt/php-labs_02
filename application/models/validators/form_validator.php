@@ -91,7 +91,7 @@ class Form_Validator {
                     foreach($this->Rules[$form_field] as $callback){
                         //echo $callback.' '.$field_data;
                         //$this->$callback($field_data);
-                        call_user_func_array(array($this, $callback), array($field_data));
+                        call_user_func_array(array($this, $callback), array($field_data , $form_field , $post_array));
                     }  
                 }
             } else {
@@ -131,7 +131,7 @@ class Form_Validator {
             return false;
         }
     }
-
+    /*
     public function isSet($data_to_check, $field_to_check){
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST[$field_to_check])){
@@ -142,4 +142,5 @@ class Form_Validator {
             }
         }
     }
+    */
 }

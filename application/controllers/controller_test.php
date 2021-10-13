@@ -14,6 +14,12 @@ class Controller_Test extends Controller{
         echo 'ValidationFirst is in progress' . '<br>';
         //$data = $this->model->get_data();
         $this->model->validatorFirst->validate($_POST);
-        $this->model->validator->showErrors();
+        $this->model->validatorFirst->showErrors();
+    }
+    function action_validateSecond(){
+        echo 'ValidationSecond is in progress' . '<br>';
+        //$data = $this->model->get_data();
+        $this->model->validatorSecond->validate($_POST);
+        $this->model->validatorSecond->showErrors();
     }
 }

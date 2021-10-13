@@ -6,12 +6,12 @@
                     Выберите свою группу
                     <select name = 'group'>
                         <optgroup label="Четкие">
-                            <option value="c1">ИСб-18-1-з</option>
+                            <option value="ИСб-18-1-з">ИСб-18-1-з</option>
                         </optgroup>
                         <optgroup label="Нечеткие">
-                            <option value="s1">ИСб-18-2-з</option>
-                            <option value="s2">ИСб-18-3-з</option>
-                            <option value="s3">ИСб-18-4-з</option>
+                            <option value="ИСб-18-2-з">ИСб-18-2-з</option>
+                            <option value="ИСб-18-3-з">ИСб-18-3-з</option>
+                            <option value="ИСб-18-4-з">ИСб-18-4-з</option>
                         </optgroup>
                     </select>
                     <br>
@@ -19,12 +19,12 @@
                     <br>
                     <input type="submit" value="Отправить">
                 </form>
-                <form onsubmit="check_for_numbs()">
+                <form onsubmit="check_for_numbs()" method = "post" action = "test/validateSecond">
                     <p>
                         Сколько будет 2+2
-                        Ответ: 2 <INPUT NAME="POL" TYPE= Checkbox VALUE="2">
-                        Ответ: 3 <INPUT NAME="POL" TYPE= Checkbox VALUE="3">
-                        Ответ: 4 <INPUT NAME="POL" TYPE= Checkbox VALUE="4">
+                        Ответ: 2 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="2">
+                        Ответ: 3 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="3">
+                        Ответ: 4 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="4">
                     </p>
                     <p>
                         Выберите четное число<select>
