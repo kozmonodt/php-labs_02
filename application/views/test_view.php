@@ -20,32 +20,48 @@
                     <input type="submit" value="Отправить">
                 </form>
                 <form onsubmit="check_for_numbs()" method = "post" action = "test/validateSecond">
+                    <p>Сколько будет 2+2
+                        <div>
+                            <input type="radio" id="2" name="two_plus_two" value="2" checked>
+                            <label for="2">2</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="3" name="two_plus_two" value="3">
+                            <label for="3">3</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="4" name="two_plus_two" value="4">
+                            <label for="4">4</label>
+                        </div>
+                    </p>
+                    <!--
                     <p>
                         Сколько будет 2+2
                         Ответ: 2 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="2">
                         Ответ: 3 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="3">
                         Ответ: 4 <INPUT NAME="POL[]" TYPE= Checkbox VALUE="4">
                     </p>
-                    <p>
-                        Выберите четное число<select>
+                    -->
+                    <p>Выберите четное число
+                        <select name='chislo'>
                             <optgroup label="Нечетные">
-                                <option value="c1">1</option>
-                                <option value="c2">3</option>
-                                <option value="c3">5</option>
+                                <option value="chet">1</option>
+                                <option value="chet">3</option>
+                                <option value="chet">5</option>
                             </optgroup>
                             <optgroup label="Четные">
-                                <option value="s1">2</option>
-                                <option value="s2">4</option>
-                                <option value="s3">6</option>
-                                <option value="s3">8</option>
+                                <option value="nechet">2</option>
+                                <option value="nechet">4</option>
+                                <option value="nechet">6</option>
+                                <option value="nechet">8</option>
                             </optgroup>
                         </select>
                     </p>
                     <p>
 
                     </p>
-                    <p>
-                        Что такое хорошо?<input type="text" value="Здеь писать ответ" id='answer3'>
+                    <p>Что такое хорошо?
+                        <input type="text" name='plane_text' placeholder="Писать здесь">
                     </p>
                     <p><input type="reset"></p>
                     <input type="submit" value="Отправить">

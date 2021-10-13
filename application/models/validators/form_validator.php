@@ -85,6 +85,7 @@ class Form_Validator {
                     var_dump($this->Rules);
                     var_dump($this->Rules[$form_field]);
                     var_dump($field_data);
+                    
                     echo '</pre>';
                     
                     //echo $this->Rules[$form_field];
