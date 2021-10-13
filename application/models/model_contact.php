@@ -15,7 +15,6 @@ class Model_Contact extends Model{
             'email' => array('isNotEmpty', 'isEmail'),
             'telefon' => array('isNotEmpty', 'isTelNumber'),
         );
-        echo "Hey bitches!";
         foreach($rules as $rule_key => $rules){
             foreach($rules as $rule){
                 //echo $rule_key . "=>" . $rule ;

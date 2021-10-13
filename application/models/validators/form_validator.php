@@ -90,7 +90,8 @@ class Form_Validator {
                     //echo $this->Rules[$form_field];
                     foreach($this->Rules[$form_field] as $callback){
                         //echo $callback.' '.$field_data;
-                        $this->$callback($field_data);
+                        //$this->$callback($field_data);
+                        call_user_func_array(array($this, $callback), array($field_data));
                     }  
                 }
             } else {

@@ -2,9 +2,9 @@
             <p style="font-weight: bolder;">СевГУ</p>
             <p>ИС</p>
             <p>
-                <form onsubmit="checkform(this)">
+                <form onsubmit="checkform(this)" method = 'post' action = "test/validateFirst">
                     Выберите свою группу
-                    <select>
+                    <select name = 'group'>
                         <optgroup label="Четкие">
                             <option value="c1">ИСб-18-1-з</option>
                         </optgroup>
@@ -15,7 +15,7 @@
                         </optgroup>
                     </select>
                     <br>
-                    Напишите свое ФИО <input type="text" id="FIO">
+                    Напишите свое ФИО <input type="text" id="FIO" name = 'fio'>
                     <br>
                     <input type="submit" value="Отправить">
                 </form>

@@ -10,10 +10,10 @@ class Controller_Test extends Controller{
         $data = $this->model->get_data();
         $this->view->generate('test_view.php', 'template_view.php', $data);
     }
-    function action_validate(){
-        echo 'Validation is in progress' . '<br>';
-        $data = $this->model->get_data();
-        $this->model->validate($_POST);
+    function action_validateFirst(){
+        echo 'ValidationFirst is in progress' . '<br>';
+        //$data = $this->model->get_data();
+        $this->model->validatorFirst->validate($_POST);
         $this->model->validator->showErrors();
     }
 }
